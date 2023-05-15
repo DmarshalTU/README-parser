@@ -8,8 +8,8 @@ function parse(req, res, next) {
         timestamp = new Date().getTime();
 
         
-        url = url.replaceAll(".git", "/main/README.md");
-        url = url.replaceAll("https://github.com", "https://raw.githubusercontent.com")
+        url = url.replace(".git", "/main/README.md");
+        url = url.replace("https://github.com", "https://raw.githubusercontent.com")
 
         let command = `curl ${url} > ${timestamp}.md`;
         console.log(command)
@@ -26,6 +26,17 @@ function parse(req, res, next) {
         });
 }
 
+function index(req, res, next) {
+
+        fs.readFile('.well-known/ai-plugin.json', "utf8", (e, data) => {
+            if(e) {
+                throw(e);
+            }
+            res.send(data)
+        })
+}
+
 module.exports = {
-    parse
+    parse,
+    index
 }

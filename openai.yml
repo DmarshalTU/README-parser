@@ -4,7 +4,7 @@ info:
   description: Plugin for parsing a README.md from github repository, you will get a full text for forward a AI usage.
   version: 'v1'
 servers:
-  - url: http://localhost:8888
+  - url: http://51.136.114.22:5003
 paths:
   /parse:
     post:

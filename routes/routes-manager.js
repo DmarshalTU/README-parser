@@ -4,6 +4,7 @@ const
     readmeAPI = require("../src/readmeAPI.js");
 
 
+router.get("/", readmeAPI.index);
 router.post("/parse", readmeAPI.parse);
 
 module.exports = router;
